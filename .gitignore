@@ -1,0 +1,6 @@
+output/
+profiles/private/
+.env
+__pycache__/
+.venv/
+.claude/

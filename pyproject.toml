@@ -1,0 +1,9 @@
+[project]
+name = "defence-tender-watch"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "fpdf2>=2.9.0",
+    "openai>=3.42.1",
+    "python-dotenv>=1.2.4",
+]

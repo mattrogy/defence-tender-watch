@@ -1,0 +1,27 @@
+# Fictional example profile. It describes no real company.
+# To watch tenders for a real company, write its profile under profiles/private/,
+# which git ignores, so the company's name and positioning never reach the public repository.
+
+[company]
+name = "Example AUV & ROV maker"
+# What the company sells, in plain English: the LLM scores every notice against this text.
+description = """
+Builds autonomous underwater vehicles (AUV) and remotely operated vehicles (ROV) for hydrographic
+survey, subsea inspection and underwater search. Customers: navies, coast guards, port
+authorities, research institutes and offshore energy operators across Europe.
+Sells complete vehicles: tenders that buy only parts, sub-systems, upgrades or maintenance are
+adjacent business.
+"""
+
+[scoring]
+# Optional. The model says whether a tender buys complete systems or only components/services;
+# the code then caps components-only tenders at this score. Delete the line to turn the cap off.
+max_score_components = 3
+
+[keywords]
+# French keywords search BOAMP and TED; English keywords search TED.
+fr = ["levé hydrographique", "hydrographie", "inspection sous-marine", "véhicule téléopéré",
+      "véhicule sous-marin", "drone sous-marin", "robot sous-marin", "ROV", "AUV", "UUV", "sonar"]
+en = ["autonomous underwater vehicle", "unmanned underwater vehicle", "remotely operated vehicle",
+      "underwater vehicle", "hydrographic survey", "subsea inspection", "underwater search",
+      "sonar", "AUV", "UUV", "ROV"]
