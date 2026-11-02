@@ -1,5 +1,14 @@
 # Defence tender watch
 
+## Why
+
+Public buyers across Europe publish their purchases in more than 30 countries and as many
+languages. A defence company's go-to-market team cannot read them all, so relevant calls,
+early market consultations and competitors' wins slip by. This tool collects those notices,
+keeps the relevant ones and turns them into a one-page digest the team can read in a few minutes.
+
+## What it does
+
 A small tool that watches public procurement notices for a defence tech company and produces a
 one-page weekly digest of the opportunities that matter.
 
@@ -104,6 +113,20 @@ One 90-day run with an underwater-drone profile (aggregate figures only):
 - about 30 notices of medium or high relevance; two thirds of all notices bought components or
   services rather than complete systems;
 - scoring cost: under one cent; the digest fits on one A4 page.
+
+## How the output was checked
+
+Every line of a digest was checked by hand against the official TED notice. Each error found that
+way was fixed in the code, not patched in the output:
+
+- **Lots hidden behind a generic title**: a notice titled like a vehicle purchase only bought
+  components (hulls, motors, sensors) in separate lots, and was scored as complete vehicles. Lot
+  titles are now collected and shown to the model ([DECISIONS.md #13](DECISIONS.md#13-the-model-sees-the-lots-not-just-the-title)).
+- **A contract modification shown as a new award**: modifications of older contracts are now left
+  out of the awards section ([DECISIONS.md #12](DECISIONS.md#12-contract-modifications-are-not-recent-awards)).
+- **A prompt rule the model ignored**: a components-only tender kept a high score despite a rule
+  in the profile. The model now only classifies the scope, and the cap is enforced by code
+  ([DECISIONS.md #10](DECISIONS.md#10-business-caps-are-enforced-by-code-not-by-the-prompt)).
 
 ## Limitations
 
